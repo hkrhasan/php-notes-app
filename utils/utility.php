@@ -24,7 +24,7 @@
             $stmt->execute([
                 ':username' => $uname,
                 ':email' => $email,
-                ':pass' => $passwd
+                ':pass' => md5($passwd)
             ]);
             
             $conn = null;
@@ -65,9 +65,9 @@
                 return '<h5 class="mt-3" style="color: red;"> User not found! </h5>'; 
             }
 
-            if($result->pass != $passwd){
+            if($result->pass != md5($passwd)){
                 $conn = null;
-                return '<h5 class="mt-3" style="color: red;"> Incorrect Password! </h5>';
+                return '<h5 class="mt-3" style="color: red;"> Incorrect Password!'.md5($passwd).' </h5>';
             }
             
             session_start();

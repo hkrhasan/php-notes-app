@@ -3,7 +3,7 @@
     include './includes/nav.php'; 
 ?>
   <body>
-    <div class="container" style="display:grid; place-content:center; height:80vh;">
+    <div class="container mt-3" style="display:grid; place-content:center; height:80vh;">
         <h1>Sign Up </h1>
     <form action="#" method="post">
         <div class="mb-3">
@@ -25,6 +25,9 @@
         </div>
         <input type="submit" class="btn btn-primary" value="Register" name="submit" />
         </form>
+        <div style="font-size:14px" class="mt-1">
+            if you have account <a href="./login.php" >click hrere</a>
+        </div>
         <?php 
             if(isset($_POST['submit'])){
                 $uname = $_POST['uname'];

@@ -2,11 +2,10 @@
     include './includes/header.php'; 
     include './includes/nav.php';
     
-    session_start();
-    if($_SESSION['user']){
+    if(isset($_SESSION['user'])){
         header('Location: http://localhost/new_notes_app');
     }
-    
+
 ?>
   <body>
     <div class="container" style="display:grid; place-content:center; height:80vh;">
@@ -14,7 +13,7 @@
     <form action="#" method="post">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email address">
+            <input name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
@@ -27,6 +26,9 @@
         </div>
         <input name="submit" value="Login" type="submit" class="btn btn-primary">
         </form>
+        <div style="font-size:14px" class="mt-3">
+            if you hav'nt account <a href="./register.php" >click hrere</a>
+        </div>
         <?php 
             if(isset($_POST['submit'])){
                 $email = $_POST['email'];
