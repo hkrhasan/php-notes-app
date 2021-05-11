@@ -12,14 +12,15 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Create Notes</a>
+                <a class="nav-link" href="./create_post.php">Create Post</a>
             </li>
             
             </ul>
             <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">';
         session_start();
-        $button = isset($_SESSION['user']) ? '<a href="./includes/logout.php" class="btn btn-outline-success" type="submit">Logout</a>' :  '<a href="./login.php" class="btn btn-outline-success" type="submit">login</a>';
+        $user = isset($_SESSION['user']) ? $_SESSION['user'] : null;
+        $button = $user ? '<a href="./includes/logout.php" class="btn btn-outline-success" type="submit">Logout</a>' :  '<a href="./login.php" class="btn btn-outline-success" type="submit">login</a>';
         
         echo $button;
         echo  '</form>

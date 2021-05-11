@@ -78,4 +78,40 @@
             return '<h5 class="mt-3" style="color: red;"> Something went wrong! </h5>';
         } 
     }
+
+
+    function create_post($title, $body, $user){
+        if(!$title || !$body){
+            $missing = !$title ? "Title" : "Body Text";
+            
+            return '<h5 class="mt-3" style="color: red;">'.$missing." is Required</h5>";
+        }
+
+
+        include './includes/db.php';
+        
+        if(!$conn){
+            return '<h5 class="mt-3" style="color: red;"> Connection Problem </h5>';
+        }
+
+        try {
+            $sql = 'INSERT INTO posts(title, body, user) VALUES(:title, :body, :user)';
+
+            $stmt = $conn->prepare($sql);
+            
+            $stmt->execute([
+                ':title' => $title,
+                ':body' => $body,
+                ':user' => $user
+            ]);
+            
+            $conn = null;
+            return '<h5 class="mt-3" style="color: green;"> Post created successfully </h5>';
+        } catch (\Throwable $th) {
+            return '<h5 class="mt-3" style="color: red;"> Something went wrong! </h5>';
+        }
+
+        
+    }
+
 ?>
