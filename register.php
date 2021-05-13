@@ -3,7 +3,7 @@
     include './includes/nav.php'; 
 ?>
   <body>
-    <div class="container mt-3" style="display:grid; place-content:center; height:80vh;">
+    <div class="container" style="display:grid; place-content:center; height:80vh; margin-top: 4rem !important;">
         <h1>Sign Up </h1>
     <form action="#" method="post">
         <div class="mb-3">

@@ -17,7 +17,7 @@
     });
   </script>
   
-    <div class="container">
+    <div class="container" style="margin-top: 6rem !important;">
       <div class="mt-3 mb-5 border-bottom border-5 border-dark">
         <h1 >CREATE POST</h1>
       </div>
